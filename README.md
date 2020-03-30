@@ -1,7 +1,7 @@
 # Ancillary
 
-Allows you to pass file descriptors between processes over an UNIX socket.
-It's a wrapper around a [libancillary](http://www.normalesup.org/~george/comp/libancillary/).
+Allows you to pass open file descriptors between processes over an UNIX socket.
+It's a wrapper around [libancillary](http://www.normalesup.org/~george/comp/libancillary/).
 
 ## Installation
 
@@ -10,7 +10,7 @@ It's a wrapper around a [libancillary](http://www.normalesup.org/~george/comp/li
    ```yaml
    dependencies:
      ancillary:
-       github: 84codes/ancillary
+       github: 84codes/ancillary.cr
    ```
 
 2. Run `shards install`
@@ -47,7 +47,7 @@ io.close
 
 ## Contributing
 
-1. Fork it (<https://github.com/84codes/ancillary/fork>)
+1. Fork it (<https://github.com/84codes/ancillary.cr/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
