@@ -1,8 +1,8 @@
 name: ancillary
 version: 0.1.0
 
-postinstall:
-  - make -C libancillary
+scripts:
+  postinstall: make -C libancillary
 
 authors:
   - Carl Hörberg <carl.hoerberg@gmail.com>
