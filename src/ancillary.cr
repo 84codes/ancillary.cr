@@ -4,7 +4,7 @@ require "./lib_ancillary"
 # Allow you to pass file descriptors between process over an UNIX socket
 # The socket will be set into blocking mode
 class Ancillary
-  VERSION = "0.1.0"
+  VERSION = "0.1.1"
 
   def initialize(@socket : UNIXSocket)
     @socket.blocking = true
