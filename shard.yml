@@ -1,0 +1,12 @@
+name: ancillary
+version: 0.1.0
+
+postinstall:
+  - make -C libancillary
+
+authors:
+  - Carl Hörberg <carl.hoerberg@gmail.com>
+
+crystal: 0.33.0
+
+license: MIT
