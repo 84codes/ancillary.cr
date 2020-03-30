@@ -10,18 +10,29 @@ class Ancillary
     @socket.blocking = true
   end
 
-  # Send a file descriptor over the socket
+  # Send a file descriptor
   def send(fd)
-    if LibAncillary.ancil_send_fd(@socket.fd, fd) != 0
+    Ancillary.send(@socket, fd)
+  end
+
+  # Receive a file descriptor
+  def receive
+    Ancillary.receive(@socket)
+  end
+
+  # Send a file descriptor
+  # Make sure that the socket is in blocking operation
+  def self.send(socket : UNIXSocket, fd)
+    if LibAncillary.ancil_send_fd(socket.fd, fd) != 0
       raise Error.new "Error while sending file descriptor"
     end
   end
 
-  # Receive a file descriptor over the socket
-  # This is a blocking operation
-  def receive
+  # Receive a file descriptor
+  # Make sure that the socket is in blocking operation
+  def self.receive(socket : UNIXSocket)
     fd = LibC::Int.new(0)
-    if LibAncillary.ancil_recv_fd(@socket.fd, pointerof(fd)) != 0
+    if LibAncillary.ancil_recv_fd(socket.fd, pointerof(fd)) != 0
       raise Error.new "Error while receiving file descriptor"
     end
     fd
